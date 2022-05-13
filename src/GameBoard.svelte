@@ -1,8 +1,11 @@
 <script>
+  import { gameStore } from "./gameStore.js";
   import { socket } from "./socket.js";
   import WinLine from "./WinLine.svelte";
 
-  export let moves, turn, board, symbols, gameOver, colors, winLine, winner;
+  $: console.log($gameStore);
+  $: ({ moves, turn, board, symbols, gameOver, colors, winLine, winner } = $gameStore);
+  $: console.log(moves, turn, board, symbols, gameOver, colors, winLine, winner);
 
   function handleClick(index) {
     if (!board[index] && !gameOver) {

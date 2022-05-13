@@ -1,14 +1,11 @@
 <script>
   import { fade, slide } from "svelte/transition";
+  import { gameStore } from "./gameStore";
 
-  export let winner;
-  export let symbols;
-  export let gameOver;
-  export let colors;
+  $: ({ winner, gameOver, colors, symbols } = $gameStore);
 </script>
 
 <!-- <p>winner = {winner}</p> -->
-<!-- <div>GameOverMessage</div> -->
 
 {#if gameOver}
   <div class="message-container">
