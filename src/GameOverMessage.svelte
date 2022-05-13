@@ -25,12 +25,12 @@
 <style>
   .message {
     font-size: 2em;
+    margin: 0;
   }
 
   .message-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
   }
 </style>

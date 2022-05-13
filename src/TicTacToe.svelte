@@ -1,4 +1,5 @@
 <script>
+  import { gameStore } from "./gameStore.js";
   import GameOverMessage from "./GameOverMessage.svelte";
 
   import { socket } from "./socket.js";
@@ -58,5 +59,7 @@
 <style>
   h1 {
     text-align: center;
+    margin: 0.25em 0;
+    line-height: 1.3em;
   }
 </style>
