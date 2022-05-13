@@ -34,9 +34,9 @@ function TicTacToeSocket(socket) {
     io.emit('chat message', msg);
   });
 
-  socket.on('new move', function (data) {
+  socket.on('move:add', function (data) {
     console.log('new move: ' + JSON.stringify(data));
-    io.emit('new move', data);
+    io.emit('move:add', data);
   });
 }
 

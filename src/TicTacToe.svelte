@@ -5,12 +5,12 @@
 
   import { socket } from "./socket.js";
 
-  socket.on("new move", (move) => {
+  socket.on("move:add", (move) => {
     gameStore.update((gameObj) => {
       gameObj.board[move.index] = move.turn;
+      gameObj.moves.push(move);
       return gameObj;
     });
-    gameStore.addMove(move);
   });
 </script>
 

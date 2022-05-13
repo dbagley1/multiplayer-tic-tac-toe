@@ -1,14 +1,11 @@
 import { writable } from "svelte/store";
 
-
-
-function createGameStore() {
+export const createGameStore = () => {
   const gameObj = {
     moves: [],
     board: Array(9).fill(0),
     symbols: ["", "X", "O"],
     colors: ["", "var(--g-red)", "var(--g-blue)"],
-    winner: 0,
     winLine: [],
     get turn() { return (this.moves.length % 2) + 1; },
     get gameOver() { return this.winner || this.moves.length >= 9; },
@@ -37,8 +34,15 @@ function createGameStore() {
         return game;
       });
     },
+    restartGame: () => {
+      update((game) => {
+        game.moves = [];
+        game.board = Array(9).fill(0);
+        return game;
+      });
+    },
   };
-}
+};
 
 export const gameStore = createGameStore();
 
@@ -52,13 +56,3 @@ const lines = [
   [0, 4, 8],
   [2, 4, 6],
 ];
-
-function checkForWin(board) {
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-      return board[a];
-    }
-  }
-  return 0;
-}

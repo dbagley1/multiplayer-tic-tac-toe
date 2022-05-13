@@ -24,9 +24,6 @@
   }
 
   $: winPath = `M ${x1} ${y1} L ${x2} ${y2}`;
-  $: console.log(winPath);
-
-  $: path = `M0 0 L${height || 100} ${width || 100} Z`;
 </script>
 
 <div class="win-line" bind:clientWidth={width} bind:clientHeight={height}>

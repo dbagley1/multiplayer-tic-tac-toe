@@ -6,5 +6,5 @@
 
 <main>
   <TicTacToe />
-  <Chat />
+  <!-- <Chat /> -->
 </main>

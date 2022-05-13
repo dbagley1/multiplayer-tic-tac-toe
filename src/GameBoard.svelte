@@ -3,13 +3,11 @@
   import { socket } from "./socket.js";
   import WinLine from "./WinLine.svelte";
 
-  $: console.log($gameStore);
   $: ({ moves, turn, board, symbols, gameOver, colors, winLine, winner } = $gameStore);
-  $: console.log(moves, turn, board, symbols, gameOver, colors, winLine, winner);
 
   function handleClick(index) {
     if (!board[index] && !gameOver) {
-      socket.emit("new move", { index, turn });
+      socket.emit("move:add", { index, turn });
     }
   }
 </script>

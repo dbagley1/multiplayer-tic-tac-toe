@@ -9,13 +9,13 @@
 
 {#if gameOver}
   <div class="message-container">
-    {#if winner}
-      <p class="winner message" transition:slide>
-        <strong style="color: {colors[winner]}">{symbols[winner]}</strong> Wins!
-      </p>
-    {:else}
-      <p class="draw message" transition:slide>It's a <strong>Draw</strong>!</p>
-    {/if}
+    <p class="message" transition:slide>
+      {#if winner}
+        <span><strong style="color: {colors[winner]}">{symbols[winner]}</strong> Wins!</span>
+      {:else}
+        <span>It's a <strong>Draw</strong>!</span>
+      {/if}
+    </p>
   </div>
 {/if}
 
